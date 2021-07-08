@@ -88,7 +88,7 @@ namespace emailTestApp
             // 
             this.btnSend.Location = new System.Drawing.Point(286, 321);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(69, 25);
+            this.btnSend.Size = new System.Drawing.Size(72, 23);
             this.btnSend.TabIndex = 6;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
