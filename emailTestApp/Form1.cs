@@ -30,6 +30,7 @@ namespace emailTestApp
                 smtpClient.Port = (int)numericUpDown.Value;
                 smtpClient.EnableSsl = checkBoxSSL.Checked;
                 smtpClient.Credentials = new System.Net.NetworkCredential(textBoxUsername.Text, textBoxPassword.Text);
+                smtpClient.UseDefaultCredentials = true;
                 smtpClient.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
 
                 MailMessage mail = new MailMessage();
@@ -38,6 +39,8 @@ namespace emailTestApp
                 mail.From = new MailAddress(textBoxUsername.Text, "TEST APP", Encoding.UTF8);
                 mail.To.Add(new MailAddress(textBoxRecipient.Text));
                 string token = "token";
+                smtpClient.Timeout = 100;
+                //smtpClient.Send(mail);
                 smtpClient.SendAsync(mail, token);
                 //textBoxResponse.Text += $"{DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss")} - Message sent." + System.Environment.NewLine + System.Environment.NewLine;
             }
